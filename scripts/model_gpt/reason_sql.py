@@ -12,11 +12,19 @@ import regex as re
 from typing import List
 import platform
 import multiprocessing
+
+import sys
+
+# 현재 파일 위치 기준으로 H-STAR 디렉토리를 sys.path에 추가
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
+sys.path.insert(0, PROJECT_ROOT)  # generation을 찾기 위해 H-STAR 경로 추가
+
 from generation.generator_gpt import Generator
 from utils.utils import load_data_split
 from nsql.database import NeuralDB
 
-ROOT_DIR = os.path.join(os.path.dirname(__file__), "../..")
+ROOT_DIR = os.path.join(os.path.dirname(__file__), "../../..")
 
 def worker_annotate(
         pid: int,
