@@ -1,0 +1,24 @@
+[
+    {
+      "statement": "does pat or john have the highest total",
+      "table_text": [
+        ["name", "league", "fa cup", "league cup", "jp trophy", "total"],
+        ["scot bennett", "5", "0", "0", "0", "5"],
+        ["danny coles", "3", "0", "0", "0", "3"],
+        ["liam sercombe", "1", "0", "0", "0", "1"],
+        ["alan gow", "4", "0", "0", "0", "4"],
+        ["john oflynn", "11", "0", "1", "0", "12"],
+        ["guillem bauza", "2", "0", "0", "0", "2"],
+        ["jimmy keohane", "3", "0", "0", "0", "3"],
+        ["pat baldwin", "1", "0", "0", "0", "1"],
+        ["jamie cureton", "20", "0", "0", "0", "20"],
+        ["arron davies", "3", "0", "0", "0", "3"],
+        ["jake gosling", "1", "0", "0", "0", "1"],
+        ["own goals", "0", "0", "0", "0", "0"],
+        ["total", "0", "0", "0", "0", "0"]
+      ],
+      "answer": ["john"],
+      "ids": "nu-11"
+    }
+  ]
+  
