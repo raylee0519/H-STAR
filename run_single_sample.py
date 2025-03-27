@@ -11,7 +11,7 @@ TOKENIZER_FALSE = "set TOKENIZERS_PARALLELISM=false &&" # Window ver
 INPUT_FILE = "test_data/wikitq_single_sample.json"  # ← 여기에 아래 JSON 내용을 저장한 경로 사용
 
 ## Step 1: col_sql
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/col_sql.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt_single/col_sql.py ^
 --input_file {INPUT_FILE} ^
 --prompt_file prompts/col_select_sql.txt ^
 --n_parallel_prompts 3 ^
@@ -21,7 +21,7 @@ os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/col_sql.py ^
 -v""")
 
 ## Step 2: col_text
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/col_text.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt/col_text.py ^
 --input_file wikitq_test_col_sql.json ^
 --prompt_file prompts/col_select_text.txt ^
 --n_parallel_prompts 3 ^
@@ -31,7 +31,7 @@ os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/col_text.py ^
 -v""")
 
 ## Step 3: row_sql
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/row_sql.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt/row_sql.py ^
 --input_file wikitq_test_col_text.json ^
 --prompt_file prompts/row_select_sql.txt ^
 --n_parallel_prompts 3 ^
@@ -41,7 +41,7 @@ os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/row_sql.py ^
 -v""")
 
 ## Step 4: row_text
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/row_text.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt/row_text.py ^
 --input_file wikitq_test_row_sql.json ^
 --prompt_file prompts/row_select_text.txt ^
 --n_parallel_prompts 3 ^
@@ -51,7 +51,7 @@ os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/row_text.py ^
 -v""")
 
 ## Step 5: reason_sql
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/reason_sql.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt/reason_sql.py ^
 --input_file wikitq_test_row_text.json ^
 --prompt_file prompts/sql_reason_wtq.txt ^
 --n_parallel_prompts 3 ^
@@ -61,7 +61,7 @@ os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/reason_sql.py ^
 -v""")
 
 ## Step 6: final text reason
-os.system(fr"""{TOKENIZER_FALSE} python ./scripts/model_gpt/reason_text.py ^
+os.system(fr"""{TOKENIZER_FALSE} python ./H-STAR/scripts/model_gpt/reason_text.py ^
 --input_file wikitq_test_sql_reason.json ^
 --prompt_file prompts/text_reason_wtq.txt ^
 --n_parallel_prompts 1 ^
